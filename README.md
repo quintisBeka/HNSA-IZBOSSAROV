@@ -52,3 +52,17 @@
 - `py -m PyInstaller --onefile --name HybridAuditor hybrid_launcher.py --add-data "templates;templates" --add-data "static;static" --add-data "translations;translations" --add-data "instance;instance"`
 
 Если проект лежит в OneDrive и возникают странные ошибки доступа/кодировки, перенесите папку в `C:\Projects\HybridAuditor` и повторите сборку.
+
+
+## Ошибка: `[ERROR] Python not found in PATH`
+Это значит, что в системе не установлен Python **или** он не добавлен в PATH.
+
+`build_exe.bat` теперь умеет:
+- автоматически попытаться поставить Python через `winget`;
+- затем продолжить сборку EXE.
+
+Если `winget` недоступен:
+1. Установите Python 3.10+ вручную: https://www.python.org/downloads/windows/
+2. На установщике включите **Add python.exe to PATH**.
+3. Закройте и заново откройте CMD.
+4. Повторите: `build_exe.bat`
