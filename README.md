@@ -30,3 +30,25 @@
 - История, логи, PDF отчеты.
 - Геолокация IP, DNS/reverse DNS, uptime, базовый discovery.
 - RU/KZ локализация, Dashboard с Chart.js.
+
+
+## Если build_exe.bat пишет: "pyinstaller не является командой"
+Это означает, что в PATH не найден исполняемый файл `pyinstaller`.
+Обновлённый `build_exe.bat` запускает сборку через модульный вызов:
+- `py -m PyInstaller` или `python -m PyInstaller`
+
+Сделайте так:
+1. Откройте **обычный CMD** (не старый терминал с битым PATH).
+2. Проверьте Python:
+   - `py --version` или `python --version`
+3. Если Python не найден — переустановите Python и включите галочку **Add python.exe to PATH**.
+4. Запустите:
+   - `build_exe.bat`
+
+Ручной вариант (если нужно):
+- `py -m pip install --upgrade pip`
+- `py -m pip install -r requirements.txt`
+- `py -m pip install pyinstaller`
+- `py -m PyInstaller --onefile --name HybridAuditor hybrid_launcher.py --add-data "templates;templates" --add-data "static;static" --add-data "translations;translations" --add-data "instance;instance"`
+
+Если проект лежит в OneDrive и возникают странные ошибки доступа/кодировки, перенесите папку в `C:\Projects\HybridAuditor` и повторите сборку.
