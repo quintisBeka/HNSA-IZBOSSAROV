@@ -1,0 +1,4 @@
+body{font-family:Inter,system-ui}.sidebar{width:240px;min-height:100vh;background:linear-gradient(180deg,#121826,#1e293b)}
+.sidebar a{display:block;color:#dbeafe;padding:8px 0;text-decoration:none}.stat-card{background:#0f172a;color:#fff}
+.login-bg{background:radial-gradient(circle at top,#1d4ed8,#020617);min-height:100vh}
+.card{background:#111827;color:#e5e7eb;border:1px solid #374151}

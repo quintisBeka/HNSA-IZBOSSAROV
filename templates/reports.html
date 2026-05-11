@@ -1,0 +1,4 @@
+{% extends 'base.html' %}{% block content %}<h2>{{tr('history')}}</h2>
+<form class='mb-2'><input name='q' class='form-control' placeholder='search by IP'></form>
+<table class='table table-dark'><tr><th>ID</th><th>Target</th><th>Risk</th><th>Actions</th></tr>{% for s in scans %}<tr><td>{{s.id}}</td><td>{{s.target}}</td><td>{{s.risk_level}}</td><td><a href='{{ url_for("report", scan_id=s.id) }}'>PDF</a></td></tr>{% endfor %}</table>
+{% endblock %}

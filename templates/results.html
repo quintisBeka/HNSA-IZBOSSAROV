@@ -1,0 +1,5 @@
+{% extends 'base.html' %}{% block content %}<h2>Results: {{result.target}}</h2>
+<p>Risk: <b>{{risk.level}}</b>, score {{risk.score}}</p>
+<a class='btn btn-success' href='{{ url_for("report", scan_id=scan_id) }}'>Download PDF</a>
+<table class='table table-dark mt-3'><tr><th>Port</th><th>Service</th><th>Status</th></tr>{% for p in result.open_ports %}<tr><td>{{p.port}}</td><td>{{p.service}}</td><td>{{p.status}}</td></tr>{% endfor %}</table>
+<ul>{% for r in risk.recommendations %}<li>{{r}}</li>{% endfor %}</ul>{% endblock %}
