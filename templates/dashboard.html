@@ -1,0 +1,8 @@
+{% extends 'base.html' %}{% block content %}
+<h2>Security Dashboard</h2>
+<div class='row g-3'>
+<div class='col-md-3'><div class='card stat-card p-3'><h6>Total Scans</h6><h3>{{stats.scans}}</h3></div></div>
+<div class='col-md-3'><div class='card stat-card p-3'><h6>Users</h6><h3>{{stats.users}}</h3></div></div>
+<div class='col-md-6'><div class='card p-3'><canvas id='scanChart'></canvas></div></div></div>
+<div class='card mt-3 p-3'><h5>{{tr('history')}}</h5><table class='table table-dark table-striped'><tr><th>ID</th><th>Target</th><th>Risk</th><th>Date</th></tr>{% for s in scans %}<tr><td>{{s.id}}</td><td>{{s.target}}</td><td><span class='badge bg-danger'>{{s.risk_level}}</span></td><td>{{s.created_at}}</td></tr>{% endfor %}</table></div>
+{% endblock %}
